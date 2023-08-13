@@ -1,7 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function SyncFault() {
+  const router = useRouter();
+
   const MAX_PRIME = 1000000;
   function isPrime(n) {
     for (let i = 2; i < Math.sqrt(n); i++) {
@@ -33,20 +36,20 @@ function SyncFault() {
   };
 
   const handleRefreshPage = () => {
-    window.location.reload();
+    router.refresh();
   }
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', gap: 1}}>
-      <label for="quota">Number of primes:</label>
-      <input type="text" id="quota" name="quota" value="1000000" />
+      <label htmlFor="quota">Number of primes:</label>
+      <input type="text" id="quota" name="quota" />
 
       <button id="generate" onClick={handleGeneratePrimes}>
         Generate primes
       </button>
       <button id="reload" onClick={handleRefreshPage}>Reload</button>
 
-      <textarea id="user-input" rows="5" cols="62">
-        Try typing in here immediately after pressing "Generate primes"
+      <textarea id="user-input" rows={5} cols={62} defaultValue={"Try typing in here immediately after pressing Generate primes"}>
+        
       </textarea>
 
       <div id="output"></div>

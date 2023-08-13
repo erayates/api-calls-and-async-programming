@@ -25,9 +25,9 @@ function Sync({ params: { id } }) {
     return `Hello, my name is ${name}!`;
   }
 
-  const name = "Eray";
+  const name = "John";
 
-  const greeting = `Hello, my name is ${name}!`;
+  const greeting = makeGreeting(name);
 
   console.log(greeting);
 
