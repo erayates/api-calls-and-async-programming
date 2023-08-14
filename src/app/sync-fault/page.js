@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 function SyncFault() {
   const router = useRouter();
+  const [output,setOutput] = useState("");
 
   const MAX_PRIME = 1000000;
   function isPrime(n) {
@@ -28,11 +29,10 @@ function SyncFault() {
     return primes;
   }
 
-  const output = document.querySelector("#output");
 
   const handleGeneratePrimes = () => {
     const primes = generatePrimes(MAX_PRIME);
-    output.innerHTML = `Finished generating ${quota.value} primes!`;
+    setOutput(`Finished generating primes!`);
   };
 
   const handleRefreshPage = () => {
@@ -52,7 +52,9 @@ function SyncFault() {
         
       </textarea>
 
-      <div id="output"></div>
+      <div id="output">
+        {output}
+      </div>
     </div>
   );
 }

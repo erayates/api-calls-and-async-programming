@@ -13,6 +13,7 @@ export default function App() {
 
   if (error) return "An error has occurred.";
   if (isLoading) return "Loading...";
+  
   return (
     <div>
       <h1>{data.name}</h1>
